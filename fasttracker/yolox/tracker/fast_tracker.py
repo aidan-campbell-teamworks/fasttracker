@@ -200,6 +200,7 @@ class FastTracker(object):
 
         self.frame_id = 0
         self.args = args
+        self.verbose = verbose
 
         self.det_thresh = config["track_thresh"]
         self.match_thresh = config["match_thresh"]
