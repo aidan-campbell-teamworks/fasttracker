@@ -542,7 +542,8 @@ class FastTracker(object):
                         new_y = curr_center[1] - 0.5 * h
                         t.mean[0:2] = np.array([new_x, new_y], dtype=float)
 
-                        print(f"[ROI-Repair] Track {t.track_id}: repaired short excursion ({gap} frames).")
+                        if self.verbose:
+                            print(f"[ROI-Repair] Track {t.track_id}: repaired short excursion ({gap} frames).")
 
         # 2) Direction cone enforcement
         if len(roi) == 4:
