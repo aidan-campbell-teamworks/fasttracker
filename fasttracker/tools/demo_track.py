@@ -12,7 +12,7 @@ from yolox.exp import get_exp
 from yolox.utils import fuse_model, get_model_info, postprocess
 from yolox.utils.visualize import plot_tracking
 from yolox.tracker.byte_tracker import BYTETracker
-from yolox.tracker.fasttracker import Fasttracker
+from yolox.tracker.fasttracker import FastTracker
 from yolox.tracking_utils.timer import Timer
 
 
@@ -230,7 +230,7 @@ def image_demo(predictor, vis_folder, current_time, args):
     files.sort()
     if args.occ:
         config = load_or_init_config(args)
-        tracker = Fasttracker(args, config, frame_rate=args.fps)
+        tracker = FastTracker(args, config, frame_rate=args.fps)
     else:
         tracker = BYTETracker(args, frame_rate=args.fps)
     timer = Timer()
@@ -303,7 +303,7 @@ def imageflow_demo(predictor, vis_folder, current_time, args):
 
     if args.occ:
         config = load_or_init_config(args)
-        tracker = Fasttracker(args, config, frame_rate=30)
+        tracker = FastTracker(args, config, frame_rate=30)
     else:
         tracker = BYTETracker(args, frame_rate=30)
     timer = Timer()

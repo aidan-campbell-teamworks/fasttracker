@@ -3,7 +3,7 @@ Tracker package containing ByteTrack implementation and utilities.
 """
 
 from .byte_tracker import BYTETracker
-from .fasttracker import Fasttracker as FastTracker
+from .fasttracker import FastTracker
 from .kalman_filter import KalmanFilter
 from .matching import *
 from .basetrack import BaseTrack

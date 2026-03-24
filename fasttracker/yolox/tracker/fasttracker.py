@@ -192,7 +192,7 @@ def _iou(a, b):
     area_b = (bx2 - bx1) * (by2 - by1)
     return inter / (area_a + area_b - inter + 1e-9)
 
-class Fasttracker(object):
+class FastTracker(object):
     def __init__(self, args, config, frame_rate=30):
         self.tracked_stracks = []  # type: list[STrack]
         self.lost_stracks = []  # type: list[STrack]
@@ -648,9 +648,9 @@ class Fasttracker(object):
     def _cone_axis_and_theta(roi):
         """From four ROI points [(E1),(E2),(O2),(O1)] get cone axis unit vector and theta (degrees)."""
         E1, E2, O2, O1 = roi
-        v1 = Fasttracker._normalize(np.array(O2) - np.array(E1))
-        v2 = Fasttracker._normalize(np.array(O1) - np.array(E2))
-        axis = Fasttracker._normalize(v1 + v2)  # average direction
+        v1 = FastTracker._normalize(np.array(O2) - np.array(E1))
+        v2 = FastTracker._normalize(np.array(O1) - np.array(E2))
+        axis = FastTracker._normalize(v1 + v2)  # average direction
         dot = float(np.clip(np.dot(v1, v2), -1.0, 1.0))
         theta = math.degrees(math.acos(dot))    # opening angle
         return axis, theta

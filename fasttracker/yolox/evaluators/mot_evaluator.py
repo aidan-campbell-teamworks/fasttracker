@@ -13,7 +13,7 @@ from yolox.utils import (
     xyxy2xywh
 )
 from yolox.tracker.byte_tracker import BYTETracker
-from yolox.tracker.fasttracker import Fasttracker
+from yolox.tracker.fasttracker import FastTracker
 from yolox.deepsort_tracker.deepsort import DeepSort
 
 import contextlib
@@ -138,7 +138,7 @@ class MOTEvaluator:
         
         if self.args.occ:
             print("[Fast]: Enabled.")
-            tracker = Fasttracker(self.args, self.config)
+            tracker = FastTracker(self.args, self.config)
         else:
             tracker = BYTETracker(self.args)
         ori_thresh = self.args.track_thresh
@@ -175,7 +175,7 @@ class MOTEvaluator:
                     video_names[video_id] = video_name
                 if frame_id == 1:
                     if self.args.occ:
-                        tracker = Fasttracker(self.args, self.config)
+                        tracker = FastTracker(self.args, self.config)
                     else:
                         tracker = BYTETracker(self.args)
                     if len(results) != 0:
