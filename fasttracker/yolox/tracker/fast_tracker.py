@@ -193,7 +193,7 @@ def _iou(a, b):
     return inter / (area_a + area_b - inter + 1e-9)
 
 class FastTracker(object):
-    def __init__(self, args, config, frame_rate=30):
+    def __init__(self, args, config: dict, frame_rate=30, verbose=False):
         self.tracked_stracks = []  # type: list[STrack]
         self.lost_stracks = []  # type: list[STrack]
         self.removed_stracks = []  # type: list[STrack]
@@ -224,7 +224,8 @@ class FastTracker(object):
                 self.roi_points.append(roi_np)
                 theta = self.compute_theta(roi_np)
                 self.theta_values.append(theta)
-                print(f"[ROI] {name} loaded with theta = {theta:.2f} degrees.")
+                if verbose:
+                    print(f"[ROI] {name} loaded with theta = {theta:.2f} degrees.")
             except Exception as e:
                 print(f"[Warning] Failed to load {name}: {e}")
 
@@ -235,9 +236,10 @@ class FastTracker(object):
         self.kalman_filter = KalmanFilter()
 
         # Print config in terminal
-        print("=== FastTracker Config ===")
-        print(json.dumps(config, indent=2))
-        print("=============================")
+        if verbose:
+            print("=== FastTracker Config ===")
+            print(json.dumps(config, indent=2))
+            print("=============================")
 
     def update(self, output_results, img_info, img_size):
         self.frame_id += 1
