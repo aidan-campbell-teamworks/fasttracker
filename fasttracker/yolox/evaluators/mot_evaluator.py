@@ -13,7 +13,7 @@ from yolox.utils import (
     xyxy2xywh
 )
 from yolox.tracker.byte_tracker import BYTETracker
-from yolox.tracker.fasttracker import FastTracker
+from yolox.tracker.fast_tracker import FastTracker
 from yolox.deepsort_tracker.deepsort import DeepSort
 
 import contextlib

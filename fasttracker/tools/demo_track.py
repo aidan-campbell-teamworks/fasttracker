@@ -12,7 +12,7 @@ from yolox.exp import get_exp
 from yolox.utils import fuse_model, get_model_info, postprocess
 from yolox.utils.visualize import plot_tracking
 from yolox.tracker.byte_tracker import BYTETracker
-from yolox.tracker.fasttracker import FastTracker
+from yolox.tracker.fast_tracker import FastTracker
 from yolox.tracking_utils.timer import Timer
 
 

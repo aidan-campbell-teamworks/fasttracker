@@ -24,7 +24,7 @@ FastTracker is a general-purpose multi-object tracking framework designed for co
 
 | Date | Update |
 |------|---------|
-| **2025-12-03** |  Class aware motion prediction source code (import `fasttracker_cls.py` and `kalman_filter_cls.py` instead of `fasttracker.py` and `kalman_filter.py`). |
+| **2025-12-03** |  Class aware motion prediction source code (import `fast_tracker_cls.py` and `kalman_filter_cls.py` instead of `fast_tracker.py` and `kalman_filter.py`). |
 | **2025-10-31** |  Added C++ deployment version (FastTracker_CPP). |
 | **2025-10-21** |  Added ROI and Cone handling functions source codes. |
 
